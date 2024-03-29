@@ -47,14 +47,29 @@ function cookMeal(order, mealNumber) {
   return order;
 }
 
+function listOrders(order) {
+  var listOfOrders = [];
+  for (i = 0; i < order['meals'].length; i++) {
+    listOfOrders.push(order['meals'][i]['name'])
+  }
+  return listOfOrders;
+}
 
-
+function listSpecialRequests(order) {
+  var specialRequests = [];
+  for (i = 0; i < order['meals'].length; i++) {
+    for (j = 0; j < order['meals'][i]['specialRequests'].length; j++) {
+      specialRequests.push(order['meals'][i]['specialRequests'][j])
+    }
+  }
+  return specialRequests;
+}
 module.exports = { 
   createMeal, 
   getMade, 
   announceMeal,
   createOrder, 
   cookMeal, 
-  // listOrders, 
-  // listSpecialRequests
+  listOrders, 
+  listSpecialRequests
 };
