@@ -2,7 +2,7 @@ var assert = require('chai').assert;
 var { createMage, createEnemy, castSpell, castUltimate } = require('./rpg.js');
 
 describe('rpg', function() {
-  it.skip('should create a mage with health and magic points', function() {
+  it('should create a mage with health and magic points', function() {
     var mage1 = createMage(10, 20);
     var mage2 = createMage(50, 80);
 
@@ -13,7 +13,7 @@ describe('rpg', function() {
     assert.equal(mage2.magic, 80)
   });
   
-  it.skip('should create an enemy monster with a name and health points', function() {
+  it('should create an enemy monster with a name and health points', function() {
     var imp = createEnemy('imp', 20);
     var dragon = createEnemy('dragon', 100);
     
@@ -24,13 +24,13 @@ describe('rpg', function() {
     assert.equal(dragon.health, 100);
   });
 
-  it.skip('should create enemy that is alive by default', function() {
+  it('should create enemy that is alive by default', function() {
     var ghost = createEnemy('ghost', 40);
 
     assert.equal(ghost.alive, true);
   });
 
-  it.skip('should cost magic points in order to cast a spell', function() {
+  it('should cost magic points in order to cast a spell', function() {
     var mage = createMage(10, 20);
     var message = castSpell(mage)
 
@@ -43,7 +43,7 @@ describe('rpg', function() {
     assert.equal(newMessage, 'That spell cost 5 points. I have 10 magic points left!');
   });
 
-  it.skip('should cause damage to enemy after casting a spell', function() {
+  it('should cause damage to enemy after casting a spell', function() {
     var mage = createMage(10, 20);
     var dragon = createEnemy('dragon', 100);
     var response = castSpell(mage, dragon);
@@ -53,7 +53,7 @@ describe('rpg', function() {
     assert.equal(response, 'That spell cost 5 points. I have 15 magic points left!')
   })
 
-  it.skip('should tell you if they do not have enough magic to cast a spell', function() {
+  it('should tell you if they do not have enough magic to cast a spell', function() {
     var mage = createMage(10, 5);
     var dragon = createEnemy('dragon', 100);
     var response = castSpell(mage, dragon);
@@ -69,7 +69,7 @@ describe('rpg', function() {
     assert.equal(differentResponse, 'I can\'t do that. I don\'t have any magic points left!')
   });
 
-  it.skip('should be able to cast an ultimate spell on multiple enemies', function() {
+  it('should be able to cast an ultimate spell on multiple enemies', function() {
     var dragon = createEnemy('dragon', 100);
     var imp1 = createEnemy('imp', 20);
     var imp2 = createEnemy('imp', 20);
@@ -86,7 +86,7 @@ describe('rpg', function() {
     assert.deepEqual(remainingEnemies, [dragon]);
   });
 
-  it.skip('should be able to cast an ultimate spell on a stronger set of enemies', function() {
+  it('should be able to cast an ultimate spell on a stronger set of enemies', function() {
     var dragon = createEnemy('dragon', 100);
     var imp = createEnemy('imp', 20);
     var bat = createEnemy('bat', 40);
